@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Recetas</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/DataTables/DataTables-1.10.25/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="./assets/css/mycss.css">
+
+
+
+
+
+</head>
+
+<body>
+    <h2 id="namepag" style="display: none;">pagina Listar Recetas</h2>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Tenth navbar example" id="navTotal">
+        <div class="container-fluid">
+
+            <!-- perfil usuario-->
+            <div>
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"><i
+                        class="far fa-user"></i></button>
+
+                <div class="offcanvas offcanvas-start " data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+                    id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+                </div>
+                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
+                    aria-labelledby="offcanvasWithBackdropLabel">
+                    <div class="offcanvas-header text-white bg-dark">
+                        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Perfil</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body text-white bg-dark">
+                        <div class="d-flex justify-content-center">
+                            <div class="col-lg-6">
+                                <img class="bd-placeholder-img rounded-circle" width="140" height="140"
+                                    src="./assets/img/6540669.jpg" alt="">
+                                    <h3 id="nombrePerfil"> Bienvenido,</h3>
+                                    <h6 id="RecetasUser">Recetas: 0</h6>
+                                    <h6 id="comentariosUser">Comentarios: 0</h6>
+                                <div class="d-grid gap-2 d-md-flex justify-content-center mt-5"  onclick="inicio.cerrarCuenta()">
+                                    <button class="btn btn-primary me-md-2" type="button" id="salirCuenta"> <i
+                                            class="fas fa-sign-out-alt"
+                                            ></i>Salir</button>
+                                    <a href="editar.html" class="btn btn-primary"><i class="fas fa-user-edit"></i>
+                                        Editar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdroped with scrolling</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <p>Try scrolling the rest of the page to see this option in action.</p>
+                    </div>
+                </div>
+            </div>
+            <!---------------------------------------------------------------->
+            <!---------------------------------------------------------------->
+            <!--   barra busqueda                       -->
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <div class="input-group " id="searchva">
+                    <input type="text" class="form-control" placeholder="Buscar">
+                    <button class="btn btn-primary" type="button" id="button-addon2"><i
+                            class="fas fa-search"></i></button>
+                </div>
+            </div>
+            <!---------------------------------------------------------------->
+            <!--   opciones de navegacion                       -->
+            <div>
+
+                <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i class="fas fa-bars"></i></button>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header" id="RDB">
+                        <h5 id="offcanvasRightLabel"> <i class="fas fa-home"></i> Menu</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body" id="RDB">
+
+                        <ul class="nav nav-pills flex-column mb-auto">
+
+                            <li class="nav-item mb-2">
+                                <a class="nav-link " aria-current="page" href="inicio.html">
+                                    Inicio
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" aria-current="page" href="registrarReceta.html">
+                                    Registrar receta
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" aria-current="page" href="misRecetas.html">
+                                    Ver mis recetas
+                                </a>
+                            </li>
+
+                        </ul>
+
+                        <ul class="nav nav-pills flex-column mb-auto" id="contenidoVistaAdmin">
+
+                            <h5 class="mt-5 mb-5"> <i class="fas fa-users-cog"></i> opciones admin</h5>
+
+                            <li class="nav-item mb-2">
+                                <a class="nav-link " aria-current="page" href="listarUsuarios.html">
+                                    Listar usuarios
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link active" aria-current="page" href="listarRecetas.html">
+                                    Listar recetas
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link " aria-current="page" href="aggTipoIngrediente.html">
+                                    Agregar Tipo Ingredientes
+                                </a>
+                            </li>
+                            <li class="nav-item mb-2">
+                                <a class="nav-link" aria-current="page" href="aggIngredientes.html">
+                                    Agregar Ingredientes
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <!---------------------------------------------------------------->
+
+
+        </div>
+    </nav>
+
+
+    <div class="" style="height: 80px;">separar</div>
+
+    <div class="container justify-content-center ">
+        <div class="row">
+            <div class="col-12">
+                <table id="tableRecetas" class="table table-dark table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Comentarios</th>
+                            <th scope="col">estado</th>
+                            <th scope="col">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/DataTables/DataTables-1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="./assets/DataTables/DataTables-1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/4202c7a72a.js" crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#tableRecetas').DataTable({
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json"
+                }
+            });
+        })
+
+    </script>
+    <script src="bundle.js"></script>
+</body>
+<script>
+    let inicio = EntryPoint.codigo;
+
+</script>
+
+</html>

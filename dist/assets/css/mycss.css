@@ -1,0 +1,67 @@
+/*---------Login--------------*/
+
+#bodylogin{
+    background-image:url('../img/recetas.jpg');
+}
+
+#formlogin{
+    background-color: rgba(33, 37, 41, 0.5);
+    border-radius: 4%;
+    color: white;
+}
+#textoPlace{
+     color: #212529;
+ }
+
+/*--------------------------*/
+
+/*----------Registro------------*/
+
+#bodyRegister{
+    background-color: whitesmoke;
+    
+}
+#containerRegister{
+    background-color:#212529; 
+    border-radius: 2%;
+    color: white;
+    width: 700px;
+}
+
+#containerRegisterRecetas{
+    background-color:#212529; 
+    border-radius: 2%;
+    color: white;
+
+}
+
+/* --------Nav bar fijo----------*/
+
+#navTotal{
+    font-size: 19px;
+}
+
+#InicioContainer{
+    margin-top: 5rem;
+    width: 900px;
+    height: 100%;
+}
+
+
+
+
+
+
+/*----------------------------*/
+
+#searchva{
+    width: 50% ;
+}
+#RDB{
+    background-color:#212529 ;
+    color: whitesmoke;
+}
+
+
+
+
